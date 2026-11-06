@@ -1,0 +1,10 @@
+{
+  "name": "MedPulse",
+  "short_name": "MedPulse",
+  "description": "Find hospital beds, blood and ambulance support in the golden hour.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#d6ecfa",
+  "theme_color": "#ffe58a",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

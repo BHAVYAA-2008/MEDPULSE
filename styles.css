@@ -1,0 +1,61 @@
+:root {
+  --b1: #d6ecfa; --b2: #b5dcf5; --y1: #fff3bf; --y2: #ffe58a;
+  --card: #ffffffd9; --ink: #12324a; --mut: #4d6b82;
+  --red: #d6453d; --grn: #1f9d6a; --ln: #a9cfe8;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --b1: #16293a; --b2: #21405a; --y1: #3a3416; --y2: #6b5e1d; --card: #1c2a38d9; --ink: #e8f3fb; --mut: #9db8cc; --ln: #35566f; }
+}
+* { box-sizing: border-box; }
+html { height: 100%; }
+body {
+  margin: 0; min-height: 100%;
+  font: 15px/1.5 "Trebuchet MS", "Segoe UI", system-ui, sans-serif; color: var(--ink);
+  background: linear-gradient(160deg, var(--b1) 0%, var(--b1) 45%, var(--y1) 100%) fixed;
+  padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 14px; }
+h1 { font: 700 24px Georgia, serif; margin: 0; }
+h2 { font: 700 19px Georgia, serif; margin: 16px 0 8px; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+.bar { display: flex; gap: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--red); margin-right: 7px; animation: pulse 1.4s infinite; }
+@keyframes pulse { to { box-shadow: 0 0 0 12px #d6453d00; } }
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+.tabs { display: flex; gap: 6px; overflow-x: auto; margin: 12px 0; }
+.tab { border: 1px solid var(--ln); background: var(--card); padding: 9px 14px; border-radius: 999px; white-space: nowrap; text-decoration: none; }
+.tab.active { background: var(--y2); color: #12324a; font-weight: 700; border-color: var(--y2); }
+.btn { border: 0; background: #1d6fa5; color: #fff; padding: 9px 14px; border-radius: 10px; font-weight: 700; text-decoration: none; display: inline-block; margin: 2px 0; }
+.btn.y { background: var(--y2); color: #12324a; }
+.btn.r { background: var(--red); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.chip { border: 1px solid var(--ln); background: var(--card); padding: 7px 13px; border-radius: 10px; margin: 0 6px 6px 0; }
+.chip.on { background: var(--b2); font-weight: 700; }
+.card { background: var(--card); border: 1px solid var(--ln); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; }
+.card.alert { border-left: 6px solid var(--red); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 8px; margin: 8px 0; }
+.cell { background: var(--y1); border-radius: 10px; padding: 8px; text-align: center; border: 2px solid transparent; }
+.cell b { display: block; font-size: 21px; }
+.cell.hit { border-color: var(--grn); }
+.sub { color: var(--mut); font-size: 13px; }
+.ok { color: var(--grn); font-weight: 700; }
+.no { color: var(--red); font-weight: 700; }
+input, select, textarea { padding: 9px 11px; border-radius: 10px; border: 1px solid var(--ln); background: var(--card); width: 100%; }
+input[type="checkbox"] { width: auto; }
+.btn:focus-visible, .chip:focus-visible, .tab:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #1d6fa5; outline-offset: 2px; }
+.cnt { display: flex; align-items: center; gap: 8px; }
+.cnt button { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--ln); background: var(--card); font-size: 20px; font-weight: 700; }
+.cnt b { min-width: 28px; text-align: center; font-size: 20px; }
+.tog { border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 700; color: #fff; }
+.tog.on { background: var(--grn); } .tog.off { background: var(--red); }
+.tok { background: var(--y2); color: #12324a; border-radius: 12px; padding: 8px 12px; margin-bottom: 8px; display: flex; justify-content: space-between; gap: 8px; }
+.modal { position: fixed; inset: 0; background: #0008; display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
+.box { background: var(--b1); border: 2px solid var(--y2); border-radius: 16px; padding: 18px; max-width: 440px; width: 100%; max-height: 90vh; overflow: auto; }
+.msg { padding: 6px 10px; border-radius: 10px; margin: 4px 0; max-width: 85%; }
+.msg.me { background: var(--y2); color: #12324a; margin-left: auto; }
+.msg.them { background: var(--card); }
+.badge { background: var(--red); color: #fff; border-radius: 999px; padding: 0 7px; font-size: 12px; margin-left: 4px; }
+.err { color: var(--red); font-weight: 700; }
